@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs / local dev
+*.log
+.cache/
+
+# Node (if anyone runs npx serve etc)
+node_modules/
+
+# Large source media — keep optimized exports only in assets/media/
+assets/media/_raw/
+assets/media/*.mov
+assets/media/*.MOV
