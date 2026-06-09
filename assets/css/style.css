@@ -236,6 +236,9 @@ body:not(.is-loading) .intro {
   object-fit: cover;
   filter: brightness(0.7) contrast(1.05) saturate(0.9);
 }
+@media (orientation: portrait) {
+  .hero__video { object-fit: contain; }
+}
 .hero__vignette {
   position: absolute;
   inset: 0;
