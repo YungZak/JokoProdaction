@@ -335,110 +335,309 @@
         <span class="section-head__meta">Per-project · USD · Charlotte, NC</span>
       </header>
 
-      <ul class="pricing__list" role="list">
-        <li class="pricing__card reveal">
-          <header class="pricing__head">
-            <span class="pricing__num">/01</span>
-            <h3>The Short Cut</h3>
-            <p class="pricing__sub">For elopements, intros, brand teasers, and short-form content.</p>
-          </header>
-          <div class="pricing__price">
-            <span class="pricing__amount">$400</span>
-            <span class="pricing__unit">per hour · up to 4 hours</span>
-          </div>
-          <ul class="pricing__features" role="list">
-            <li>Video <span class="dim">or</span> photo coverage</li>
-            <li>2–4 minute edited film</li>
-            <li>40+ retouched stills</li>
-            <li>2-week turnaround</li>
-          </ul>
-          <p class="pricing__addons">
-            <span class="dim">Add-ons</span>
-            <span>+$120 / extra hour</span>
-            <span>+$200 / drone coverage</span>
-          </p>
-        </li>
+      <div class="pricing__tabs reveal" role="tablist" aria-label="Pricing categories">
+        <button class="pricing__tab is-active" type="button" role="tab" id="tab-events"
+          aria-controls="panel-events" aria-selected="true" data-category="events">Events</button>
+        <button class="pricing__tab" type="button" role="tab" id="tab-brand" aria-controls="panel-brand"
+          aria-selected="false" tabindex="-1" data-category="brand">Brand</button>
+        <button class="pricing__tab" type="button" role="tab" id="tab-portraits" aria-controls="panel-portraits"
+          aria-selected="false" tabindex="-1" data-category="portraits">Portraits</button>
+      </div>
 
-        <li class="pricing__card reveal">
-          <header class="pricing__head">
-            <span class="pricing__num">/02</span>
-            <h3>The Signature</h3>
-            <p class="pricing__sub">The standard for weddings, brand films, and event days that need a full arc.</p>
-          </header>
-          <div class="pricing__price">
-            <span class="pricing__amount">$1,200</span>
-            <span class="pricing__unit">flat · 6 hours of coverage</span>
-          </div>
-          <ul class="pricing__features" role="list">
-            <li>5–7 minute cinematic film</li>
-            <li>60+ retouched stills</li>
-            <li>One shooter (Artem)</li>
-            <li>2–3 week turnaround</li>
-          </ul>
-          <p class="pricing__addons">
-            <span class="dim">Add-ons</span>
-            <span>+$150 / extra hour</span>
-            <span>+$500 / second shooter</span>
-            <span>+$300 / drone coverage</span>
-          </p>
-        </li>
+      <div class="pricing__list">
+        <!-- WEDDINGS / EVENTS -->
+        <div class="pricing__group" id="panel-events" role="tabpanel" aria-labelledby="tab-events"
+          data-category="events">
+          <article class="pricing__card reveal" data-category="events">
+            <header class="pricing__head">
+              <span class="pricing__num">/01</span>
+              <h3>Elopement</h3>
+              <p class="pricing__sub">For intimate ceremonies and elopements.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$1,200</span>
+              <span class="pricing__unit">up to 3 hours</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>Ceremony + portraits</li>
+              <li>150+ retouched photos</li>
+              <li>Online gallery</li>
+              <li>3-week delivery</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$250 / extra hour</span>
+              <span>+$0.70 / mile beyond 1 hr</span>
+            </p>
+          </article>
 
-        <li class="pricing__card pricing__card--featured reveal">
-          <span class="pricing__badge">Most popular</span>
-          <header class="pricing__head">
-            <span class="pricing__num">/03</span>
-            <h3>The Duo</h3>
-            <p class="pricing__sub">Full video <span class="accent">and</span> photo, equal weight on both — no
-              compromise on either.</p>
-          </header>
-          <div class="pricing__price">
-            <span class="pricing__amount">$2,400</span>
-            <span class="pricing__unit">flat · 6 hours of coverage</span>
-          </div>
-          <ul class="pricing__features" role="list">
-            <li>7–10 minute cinematic film</li>
-            <li>1 videographer + 1 photographer</li>
-            <li>300+ retouched stills</li>
-            <li>3–4 week turnaround</li>
-            <li>30-sec social-cut included</li>
-          </ul>
-          <p class="pricing__addons">
-            <span class="dim">Add-ons</span>
-            <span>+$280 / extra hour</span>
-            <span>+$400 / drone coverage</span>
-            <span>+$200 / same-day teaser</span>
-          </p>
-        </li>
+          <article class="pricing__card reveal" data-category="events">
+            <header class="pricing__head">
+              <span class="pricing__num">/02</span>
+              <h3>Signature</h3>
+              <p class="pricing__sub">Full-day photography, start to finish.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$2,950</span>
+              <span class="pricing__unit">flat · 8 hours</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>600+ retouched photos</li>
+              <li>Engagement session included</li>
+              <li>72-hour sneak peek</li>
+              <li>Slideshow + online gallery</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$500 / second shooter</span>
+              <span>+$450 / rehearsal dinner</span>
+            </p>
+          </article>
 
-        <li class="pricing__card reveal">
-          <header class="pricing__head">
-            <span class="pricing__num">/04</span>
-            <h3>The Documentary</h3>
-            <p class="pricing__sub">Long-form storytelling — brand documentaries, multi-day events, full crew.</p>
-          </header>
-          <div class="pricing__price">
-            <span class="pricing__amount">$3,200</span>
-            <span class="pricing__unit">flat · 8 hours of coverage</span>
-          </div>
-          <ul class="pricing__features" role="list">
-            <li>15–20 minute long-form film</li>
-            <li>2 videographers + 1 photographer</li>
-            <li>500+ retouched stills</li>
-            <li>Behind-the-scenes coverage</li>
-            <li>3–4 week turnaround</li>
-            <li>Raw footage delivered</li>
-          </ul>
-          <p class="pricing__addons">
-            <span class="dim">Add-ons</span>
-            <span>+$350 / extra hour</span>
-            <span>+$600 / multi-day shoot</span>
-          </p>
-        </li>
-      </ul>
+          <article class="pricing__card reveal" data-category="events">
+            <header class="pricing__head">
+              <span class="pricing__num">/03</span>
+              <h3>Cinema</h3>
+              <p class="pricing__sub">Video only — the full cinematic record.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$2,400</span>
+              <span class="pricing__unit">video · 8 hours</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>5–8 minute film</li>
+              <li>Full ceremony + toasts</li>
+              <li>Drone where permitted</li>
+              <li>4–6 week delivery</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$250 / extra hour</span>
+              <span>+$500 / second shooter</span>
+            </p>
+          </article>
+
+          <article class="pricing__card pricing__card--featured reveal" data-category="events">
+            <span class="pricing__badge">Best value</span>
+            <header class="pricing__head">
+              <span class="pricing__num">/04</span>
+              <h3>Photo + Film</h3>
+              <p class="pricing__sub">Photo <span class="accent">and</span> film together — about $650 saved.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$4,200</span>
+              <span class="pricing__unit">flat · 8 hours</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>Signature photo package</li>
+              <li>3–5 minute highlight film</li>
+              <li>60-second social cut</li>
+              <li>~$650 saved vs booking separately</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$500 / second shooter</span>
+              <span>+$450 / rehearsal dinner</span>
+            </p>
+          </article>
+        </div>
+
+        <!-- BRAND / COMMERCIAL -->
+        <div class="pricing__group is-hidden" id="panel-brand" role="tabpanel" aria-labelledby="tab-brand"
+          data-category="brand" hidden>
+          <article class="pricing__card reveal" data-category="brand">
+            <header class="pricing__head">
+              <span class="pricing__num">/01</span>
+              <h3>Event Coverage</h3>
+              <p class="pricing__sub">Corporate events and conferences.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$500</span>
+              <span class="pricing__unit">first 2 hours</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>40–60 photos per 2 hours</li>
+              <li>Then $200 / hour</li>
+              <li>48-hour delivery</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$200 / extra hour</span>
+              <span>+$150 / short recap video</span>
+            </p>
+          </article>
+
+          <article class="pricing__card reveal" data-category="brand">
+            <header class="pricing__head">
+              <span class="pricing__num">/02</span>
+              <h3>Brand Session</h3>
+              <p class="pricing__sub">Web and social content in one short shoot.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$550</span>
+              <span class="pricing__unit">flat · 2 hours</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>~40 photos</li>
+              <li>2–3 setups / locations</li>
+              <li>Web + social content</li>
+              <li>Usage guide included</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$110 / extra photo hour</span>
+              <span>raw files +25%</span>
+            </p>
+          </article>
+
+          <article class="pricing__card pricing__card--featured reveal" data-category="brand">
+            <span class="pricing__badge">Most popular</span>
+            <header class="pricing__head">
+              <span class="pricing__num">/03</span>
+              <h3>Content Day</h3>
+              <p class="pricing__sub">A half-day of <span class="accent">photo and video</span> content.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$1,100</span>
+              <span class="pricing__unit">flat · half-day · 4 hrs</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>~60 photos</li>
+              <li>3 vertical Reels / TikTok cuts</li>
+              <li>Photo + video coverage</li>
+              <li>Priority delivery</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$135 / extra video hour</span>
+              <span>raw files +25%</span>
+            </p>
+          </article>
+
+          <article class="pricing__card reveal" data-category="brand">
+            <header class="pricing__head">
+              <span class="pricing__num">/04</span>
+              <h3>Promo Video</h3>
+              <p class="pricing__sub">A scripted promo, concept to final cut.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$1,500</span>
+              <span class="pricing__unit">from · per shoot day</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>Scripted plan</li>
+              <li>60–90 second film</li>
+              <li>+2 short social versions</li>
+              <li>2 rounds of revisions</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$65 / extra editing hour</span>
+              <span>raw files +25%</span>
+            </p>
+          </article>
+        </div>
+
+        <!-- PERSONAL / PORTRAITS -->
+        <div class="pricing__group is-hidden" id="panel-portraits" role="tabpanel" aria-labelledby="tab-portraits"
+          data-category="portraits" hidden>
+          <article class="pricing__card reveal" data-category="portraits">
+            <header class="pricing__head">
+              <span class="pricing__num">/01</span>
+              <h3>Mini Session</h3>
+              <p class="pricing__sub">A quick, polished session.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$200</span>
+              <span class="pricing__unit">flat · 30 min</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>1 location</li>
+              <li>15 retouched photos</li>
+              <li>Online gallery</li>
+              <li>Delivery within 5 days</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$20 / extra photo</span>
+              <span>+$75 / 48-hour rush</span>
+            </p>
+          </article>
+
+          <article class="pricing__card reveal" data-category="portraits">
+            <header class="pricing__head">
+              <span class="pricing__num">/02</span>
+              <h3>Headshot</h3>
+              <p class="pricing__sub">Professional headshots, studio or on-site.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$225</span>
+              <span class="pricing__unit">flat · 30–45 min</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>Studio or your office</li>
+              <li>3 retouched shots</li>
+              <li>Commercial license</li>
+              <li>Next-day delivery</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$50 / extra shot</span>
+            </p>
+          </article>
+
+          <article class="pricing__card reveal" data-category="portraits">
+            <header class="pricing__head">
+              <span class="pricing__num">/03</span>
+              <h3>Classic Session</h3>
+              <p class="pricing__sub">Room for two looks and locations.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$350</span>
+              <span class="pricing__unit">flat · 1 hour</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>Up to 2 locations</li>
+              <li>30 retouched photos</li>
+              <li>2 outfit changes</li>
+              <li>Delivery within 5 days</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$125 / extra hour</span>
+              <span>+$20 / extra photo</span>
+            </p>
+          </article>
+
+          <article class="pricing__card pricing__card--featured reveal" data-category="portraits">
+            <span class="pricing__badge">Most popular</span>
+            <header class="pricing__head">
+              <span class="pricing__num">/04</span>
+              <h3>Signature Session</h3>
+              <p class="pricing__sub">Photos <span class="accent">plus</span> a social-ready video.</p>
+            </header>
+            <div class="pricing__price">
+              <span class="pricing__amount">$550</span>
+              <span class="pricing__unit">flat · 2 hours</span>
+            </div>
+            <ul class="pricing__features" role="list">
+              <li>Up to 3 locations</li>
+              <li>50 retouched photos</li>
+              <li>30–60s vertical social video</li>
+              <li>Delivery within 7 days</li>
+            </ul>
+            <p class="pricing__addons">
+              <span class="dim">Add-ons</span>
+              <span>+$125 / extra hour</span>
+              <span>+$75 / 48-hour rush</span>
+            </p>
+          </article>
+        </div>
+      </div>
 
       <p class="pricing__note reveal">
-        A 30-minute consultation precedes every booking · 50% deposit secures the date · Travel within 60 miles of
-        Charlotte included. <a href="#contact">Get a custom quote &nbsp;→</a>
+        A short consultation precedes every booking · A 30–50% retainer secures your date · Sneak peek in 48–72 hours ·
+        Prices do not include NC sales tax. <a href="#contact">Get a custom quote &nbsp;→</a>
       </p>
     </section>
 

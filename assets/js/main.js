@@ -199,6 +199,38 @@
     });
   });
 
+  /* ---------- Pricing category tabs ---------- */
+  const priceTabs = Array.from(document.querySelectorAll('.pricing__tab'));
+  const priceGroups = Array.from(document.querySelectorAll('.pricing__group'));
+  if (priceTabs.length && priceGroups.length) {
+    const activate = (cat) => {
+      priceTabs.forEach(t => {
+        const on = t.dataset.category === cat;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+      });
+      priceGroups.forEach(g => {
+        const show = g.dataset.category === cat;
+        g.classList.toggle('is-hidden', !show);
+        g.hidden = !show;
+        // Newly revealed cards may carry an un-triggered reveal — show them now
+        if (show) g.querySelectorAll('.pricing__card').forEach(c => c.classList.add('is-in'));
+      });
+    };
+    priceTabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => activate(tab.dataset.category));
+      tab.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        const dir = e.key === 'ArrowRight' ? 1 : -1;
+        const next = priceTabs[(i + dir + priceTabs.length) % priceTabs.length];
+        next.focus();
+        activate(next.dataset.category);
+      });
+    });
+  }
+
   /* ---------- Hero video resilience ----------
      If hosted /assets/media/hero.mp4 is missing or external sources fail,
      keep poster visible (already styled). Also retry play after user gesture. */
