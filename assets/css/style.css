@@ -144,7 +144,8 @@ body:not(.is-loading) .intro {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: clamp(16px, 4vw, 40px);
-  padding: 22px var(--gutter);
+  /* Extend the header (and its frosted background) into the iOS safe-area / notch */
+  padding: calc(22px + env(safe-area-inset-top)) var(--gutter) 22px;
   pointer-events: none;
   mix-blend-mode: difference;
   border-bottom: 1px solid transparent;
