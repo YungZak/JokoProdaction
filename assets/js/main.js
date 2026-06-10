@@ -199,10 +199,33 @@
     });
   });
 
-  /* ---------- Pricing category tabs ---------- */
+  /* ---------- Pricing category tabs + mobile slider ---------- */
   const priceTabs = Array.from(document.querySelectorAll('.pricing__tab'));
   const priceGroups = Array.from(document.querySelectorAll('.pricing__group'));
+  const priceDots = document.querySelector('.pricing__dots');
   if (priceTabs.length && priceGroups.length) {
+    const mqSlider = matchMedia('(max-width: 600px)');
+
+    // Build/refresh the slider dots for the active group (mobile only)
+    const buildDots = () => {
+      if (!priceDots) return;
+      const group = priceGroups.find(g => !g.classList.contains('is-hidden'));
+      if (!group || !mqSlider.matches) { priceDots.innerHTML = ''; return; }
+      const cards = Array.from(group.querySelectorAll('.pricing__card'));
+      priceDots.innerHTML = cards.map((_, i) =>
+        `<button class="pricing__dot" type="button" aria-label="Plan ${i + 1}"></button>`).join('');
+      const dots = Array.from(priceDots.querySelectorAll('.pricing__dot'));
+      const sync = () => {
+        const stride = group.scrollWidth / cards.length;
+        const idx = Math.min(cards.length - 1, Math.round(group.scrollLeft / stride));
+        dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+      };
+      group.onscroll = sync;
+      dots.forEach((d, i) => d.addEventListener('click', () =>
+        cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' })));
+      sync();
+    };
+
     const activate = (cat) => {
       priceTabs.forEach(t => {
         const on = t.dataset.category === cat;
@@ -214,10 +237,15 @@
         const show = g.dataset.category === cat;
         g.classList.toggle('is-hidden', !show);
         g.hidden = !show;
-        // Newly revealed cards may carry an un-triggered reveal — show them now
-        if (show) g.querySelectorAll('.pricing__card').forEach(c => c.classList.add('is-in'));
+        if (show) {
+          g.scrollLeft = 0;
+          // Newly revealed cards may carry an un-triggered reveal — show them now
+          g.querySelectorAll('.pricing__card').forEach(c => c.classList.add('is-in'));
+        }
       });
+      buildDots();
     };
+
     priceTabs.forEach((tab, i) => {
       tab.addEventListener('click', () => activate(tab.dataset.category));
       tab.addEventListener('keydown', (e) => {
@@ -229,6 +257,9 @@
         activate(next.dataset.category);
       });
     });
+
+    if (mqSlider.addEventListener) mqSlider.addEventListener('change', buildDots);
+    buildDots();
   }
 
   /* ---------- Hero video resilience ----------
