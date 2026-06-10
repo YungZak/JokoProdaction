@@ -122,6 +122,83 @@
     }
   }
 
+  /* ---------- Header frosted glass after hero ---------- */
+  const siteHeader = document.querySelector('.site-header');
+  const heroSection = document.querySelector('.hero');
+  if (siteHeader && heroSection && 'IntersectionObserver' in window) {
+    const hio = new IntersectionObserver((entries) => {
+      siteHeader.classList.toggle('is-scrolled', !entries[0].isIntersecting);
+    }, { threshold: 0 });
+    hio.observe(heroSection);
+  }
+
+  /* ---------- Mobile menu ---------- */
+  const navToggle = document.querySelector('.nav-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  if (navToggle && mobileMenu) {
+    const setMenu = (open) => {
+      navToggle.classList.toggle('is-active', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      mobileMenu.classList.toggle('is-open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    navToggle.addEventListener('click', () =>
+      setMenu(!mobileMenu.classList.contains('is-open')));
+    mobileMenu.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) setMenu(false);
+    });
+  }
+
+  /* ---------- Work inline expand (mobile) ---------- */
+  const mqTouch = matchMedia('(max-width: 880px)');
+  workItems.forEach(item => {
+    item.addEventListener('click', () => {
+      if (!mqTouch.matches) return;
+      const willOpen = !item.classList.contains('is-open');
+
+      // Close any other open item and pause its video
+      workItems.forEach(other => {
+        if (other !== item && other.classList.contains('is-open')) {
+          other.classList.remove('is-open');
+          const v = other.querySelector('.work-item__expand video');
+          if (v) v.pause();
+        }
+      });
+
+      if (!willOpen) {
+        item.classList.remove('is-open');
+        const v = item.querySelector('.work-item__expand video');
+        if (v) v.pause();
+        return;
+      }
+
+      // Lazily build the inline video
+      let exp = item.querySelector('.work-item__expand');
+      if (!exp) {
+        exp = document.createElement('div');
+        exp.className = 'work-item__expand';
+        const inner = document.createElement('div');
+        inner.className = 'work-item__expand-inner';
+        const v = document.createElement('video');
+        v.muted = true;
+        v.loop = true;
+        v.playsInline = true;
+        v.setAttribute('playsinline', '');
+        v.preload = 'metadata';
+        v.src = item.dataset.poster || '';
+        inner.appendChild(v);
+        exp.appendChild(inner);
+        item.appendChild(exp);
+      }
+      item.classList.add('is-open');
+      const v = exp.querySelector('video');
+      if (v) v.play().catch(() => {});
+    });
+  });
+
   /* ---------- Hero video resilience ----------
      If hosted /assets/media/hero.mp4 is missing or external sources fail,
      keep poster visible (already styled). Also retry play after user gesture. */

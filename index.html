@@ -50,11 +50,25 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <div class="rec" aria-hidden="true">
-      <span class="rec__dot"></span>
-      <span class="rec__label">REC</span>
+    <div class="header__actions">
+      <div class="rec" aria-hidden="true">
+        <span class="rec__dot"></span>
+        <span class="rec__label">REC</span>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+        aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile menu -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <main id="top">
 
@@ -64,6 +78,7 @@
         <video class="hero__video" autoplay muted loop playsinline preload="auto"
           poster="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=2400&q=80"
           aria-label="Joko Production showreel">
+          <source media="(orientation: portrait)" src="assets/media/hero-mobile.mp4" type="video/mp4" />
           <source src="assets/media/hero.mp4" type="video/mp4" />
           <source src="https://cdn.coverr.co/videos/coverr-car-in-the-mist-1271/1080p.mp4" type="video/mp4" />
         </video>
